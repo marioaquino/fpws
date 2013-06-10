@@ -1,0 +1,10 @@
+apply plugin: 'scala'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile group: 'org.scalatest', name: 'scalatest_2.10', version: '1.9.1'
+}
+
