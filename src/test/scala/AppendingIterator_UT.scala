@@ -38,4 +38,25 @@ class AppendingIterator_UT extends FunSpec {
      }
   }
 
+  describe("The laziness") {
+    it("It should not evaluate the second iterator before requested") {
+      def iteratorThatShouldNotBeEvaluated: Iterator[String] = throw new RuntimeException("No! Do not evaluate me!")
+
+      def subject = AppendingIterator.of("safe") andThen iteratorThatShouldNotBeEvaluated
+
+      it("gives the first value back without barfing") {
+         subject.next()
+      }
+
+      it ("evaluates the next iterator when needed") {
+         intercept[RuntimeException] {
+	    val s = subject
+	    subject.next()
+	    subject.next()
+	 }
+      }
+
+    }
+  }
+
 }
