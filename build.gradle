@@ -6,11 +6,12 @@ repositories {
 
 dependencies {
   testCompile group: 'org.scalatest', name: 'scalatest_2.10', version: '2.0.M5b'
+  compile 'org.scala-lang:scala-library:2.10.2'
 }
 
 compileScala {
    // this should make repeated compilation a bit faster
-   scalaCompileOptions.useCompileDaemon = true
+   //scalaCompileOptions.useCompileDaemon = true
 }
 
 task test(overwrite: true, dependsOn: compileTestScala) << {
