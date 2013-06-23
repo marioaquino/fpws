@@ -18,5 +18,15 @@ class IsSortedUT extends FunSpec with ShouldMatchers {
       val arr = Array(3,3)
       isSorted[Int](arr, (_,_) => false) should equal(false)
     }
+
+    it("returns true for a multi-element array sorted according to gte") {
+      val arr = Array(3, 2, 1)
+      isSorted[Int](arr, (a, b) => {a >= b}) should equal(true)
+    }
+
+    it("returns false for a multi-element array poorly sorted according to gte") {
+      val arr = Array(3, 2, 4)
+      isSorted[Int](arr, (a, b) => {a >= b}) should equal(false)
+    }
   }
 }
