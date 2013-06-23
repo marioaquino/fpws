@@ -1,5 +1,7 @@
 #!/bin/sh ruby
 
+`say Oh!`
+
 result = if system "gradle test"
   'Fabulous'
 else
