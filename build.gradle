@@ -25,7 +25,7 @@ task test(overwrite: true, dependsOn: compileTestScala) << {
     haltonfailure: 'true',
     fork: 'false'
   ) {
-    reporter(type: 'stderr')
+    reporter(type: 'stderr', config: 'F')
   }
 }
 
