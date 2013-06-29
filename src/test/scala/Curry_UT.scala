@@ -1,6 +1,7 @@
 import org.scalatest._
 import Exercise4._
 import Exercise3._
+import Foober._
 
 class CurryTest extends FunSpec with ShouldMatchers {
   describe("Using the return value of a curried function") {
@@ -37,6 +38,16 @@ class CurryTest extends FunSpec with ShouldMatchers {
     val formatter: String => String = (msg) => formatLine("Simon says", msg)
 
     println(formatter("Jump your toes"))
+  }
+
+  describe("wacko") {
+    val f: Int => String => Double => Array[String] = (a) => (b) => (c) => Array(a.toString, b, c.toString)
+    val bc: String => Double = (s) => s.length
+
+    val w = wacko(f, bc)
+
+    w(1)("Mario") should equal (Array("1", "Mario", "5.0"))
+
   }
 
 }
