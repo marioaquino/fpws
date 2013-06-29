@@ -50,5 +50,10 @@ class CurryTest extends FunSpec with ShouldMatchers {
 
   }
 
+  describe("uncurrying...") {
+    val curried = (a:Int) => (b:Int) => { a + b }
+    uncurry1(curried)(1, 2) should equal(curried(1)(2))
+  }
+
 }
 
