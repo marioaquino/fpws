@@ -51,9 +51,22 @@ class CurryTest extends FunSpec with ShouldMatchers {
   }
 
   describe("uncurrying...") {
-    val curried = (a:Int) => (b:Int) => { a + b }
-    uncurry1(curried)(1, 2) should equal(curried(1)(2))
+    it("works") {
+      val curried = (a:Int) => (b:Int) => { a + b }
+      uncurry1(curried)(1, 2) should equal(curried(1)(2))
+    }
+    it ("could be useful now and then") {
+      val stuffInAMap = Map("Mario" -> "novio", "Jessica" -> "novia")
+      val curriedVersion = (name:String) => (adjective:String) => s"$name is the $adjective"
+
+      stuffInAMap.map(uncurry1(curriedVersion)).foreach(println)
+
+      // or this without the tupling
+      val words = Seq("Mario","Jessica","croissant")
+      println(words.reduce(uncurry1(curriedVersion)))
+    }
   }
+
 
 }
 
