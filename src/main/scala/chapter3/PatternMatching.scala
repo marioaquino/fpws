@@ -22,6 +22,11 @@ object List {
   def tail[A](ls: List[A]): List[A] = ls match {
     case Cons(x, xs) => xs
   }
+
+  def drop[A](num:Int, ls:List[A]): List[A] = {
+    if (num <= 0) ls
+    else drop(num - 1, tail(ls))
+  }
 }
 
 
