@@ -13,5 +13,9 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   describe("a dropWhile function that removes elements as long as the function parameter is true") {
     dropWhile(List(1, 2, 3, 4))(a => a < 3) should equal(List(3, 4))
   }
+
+  describe("set head for replacing the first value in a list") {
+    setHead(List(1, 2, 3), 2) should equal(List(2, 2, 3))
+  }
 }
 
