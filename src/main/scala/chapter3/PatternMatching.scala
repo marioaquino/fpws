@@ -23,9 +23,13 @@ object List {
     case Cons(x, xs) => xs
   }
 
-  def drop[A](num:Int, ls:List[A]): List[A] = {
-    if (num <= 0) ls
-    else drop(num - 1, tail(ls))
+  def drop[A](l: List[A], num:Int): List[A] = {
+    if (num <= 0) l
+    else drop(tail(l), num - 1)
+  }
+
+  def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = l match {
+    case Cons(x, xs) => if (f(x)) dropWhile(xs)(f) else l
   }
 }
 

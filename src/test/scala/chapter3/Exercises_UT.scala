@@ -7,7 +7,11 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   }
 
   describe("a drop function that removes n-items from the beginning of a List") {
-    drop(2, List(1, 2, 3, 4)) should equal(List(3, 4))
+    drop(List(1, 2, 3, 4), 2) should equal(List(3, 4))
+  }
+
+  describe("a dropWhile function that removes elements as long as the function parameter is true") {
+    dropWhile(List(1, 2, 3, 4))(a => a < 3) should equal(List(3, 4))
   }
 }
 
