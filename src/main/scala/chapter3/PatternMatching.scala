@@ -36,6 +36,11 @@ object List {
     case Nil => List(newHead)
     case Cons(head, tail) => Cons(newHead, tail)
   }
+
+  def init[A](l : List[A]): List[A] = l match {
+     case Cons(head, Cons(_, Nil)) => Cons(head, Nil)
+     case Cons(head, tail) => Cons(head, init(tail))
+  }
 }
 
 
