@@ -19,7 +19,11 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   }
 
   describe ("setHead on an empty list returns a list with that element") {
-   setHead(List(), 4) should equal (List(4))
+    setHead(List(), 4) should equal (List(4))
+  }
+
+  describe("a function that returns all but the last element of a List") {
+    init(List(1, 2, 3, 4)) should equal(List(1, 2, 3))
   }
 }
 
