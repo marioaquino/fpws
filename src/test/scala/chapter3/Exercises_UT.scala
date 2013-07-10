@@ -17,5 +17,9 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   describe("set head for replacing the first value in a list") {
     setHead(List(1, 2, 3), 2) should equal(List(2, 2, 3))
   }
+
+  describe ("setHead on an empty list returns a list with that element") {
+   setHead(List(), 4) should equal (List(4))
+  }
 }
 
