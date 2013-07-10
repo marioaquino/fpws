@@ -33,6 +33,7 @@ object List {
   }
 
   def setHead[A](l: List[A], newHead: A): List[A] = l match {
+    case Nil => List(newHead)
     case Cons(head, tail) => Cons(newHead, tail)
   }
 }
