@@ -27,8 +27,11 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   }
 
   describe("what is the init of an empty list?") {
-     init(Nil) should equal(Nil)
+    init(Nil) should equal(Nil)
   }
 
+  describe("init for a list of a single item") {
+    init(List(1)) should equal(Nil)
+  }
 }
 
