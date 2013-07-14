@@ -35,7 +35,7 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   }
 
   describe("a function to count the length of a list using foldRight") {
-    length(List(1, 2, 3, 4)) should equal(4)
+    List.length(List(1, 2, 3, 4)) should equal(4)
   }
 }
 
