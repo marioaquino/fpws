@@ -35,7 +35,21 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   }
 
   describe("a function to count the length of a list using foldRight") {
-    List.length(List(1, 2, 3, 4)) should equal(4)
+    lengthOfList(List(1, 2, 3, 4)) should equal(4)
+  }
+
+  describe("A tail-recursive foldLeft") {
+    foldLeft(List('a','b','c','d'),"")(_ + _) should equal("abcd")
+
+    //it("can reverse a really long string") {
+      //val lotsOfChars = util.Random.alphanumeric.take(4000).toArray
+      //println("This is a long string:" + new String(lotsOfChars))
+      //lazy val barf: String = throw new RuntimeException("I want to see the stack trace")
+      //List.foldLeft(List(lotsOfChars:_*),barf)(_+_) should equal(new String(lotsOfChars).reverse)
+      //val thrown = evaluating { List.foldLeft(List(lotsOfChars:_*),barf)(_+_) } should produce[RuntimeException]
+      //thrown.getStackTrace.length should be < (4000)
+    //}
+
   }
 }
 
