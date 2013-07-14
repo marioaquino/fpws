@@ -33,5 +33,9 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   describe("init for a list of a single item") {
     init(List(1)) should equal(Nil)
   }
+
+  describe("a function to count the length of a list using foldRight") {
+    length(List(1, 2, 3, 4)) should equal(4)
+  }
 }
 
