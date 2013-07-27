@@ -39,16 +39,30 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
   }
 
   describe("A tail-recursive foldLeft") {
-    foldLeft(List('a','b','c','d'),"")(_ + _) should equal("abcd")
+    it ( "can concatenate a few chars") {
+      foldLeft(List('a','b','c','d'),"")(_ + _) should equal("abcd")
+    }
 
-    //it("can reverse a really long string") {
-      //val lotsOfChars = util.Random.alphanumeric.take(4000).toArray
-      //println("This is a long string:" + new String(lotsOfChars))
+    it("cannot concatenate a really long string if not tail recursive") {
+      val lotsOfChars = util.Random.alphanumeric.take(8000).toArray
+      println("This is a long string:" + new String(lotsOfChars))
+
       //lazy val barf: String = throw new RuntimeException("I want to see the stack trace")
       //List.foldLeft(List(lotsOfChars:_*),barf)(_+_) should equal(new String(lotsOfChars).reverse)
-      //val thrown = evaluating { List.foldLeft(List(lotsOfChars:_*),barf)(_+_) } should produce[RuntimeException]
-      //thrown.getStackTrace.length should be < (4000)
-    //}
+
+      val thrown = evaluating { List.foldLeftNonTailRecursive(List(lotsOfChars:_*),"")(_+_) } should produce[StackOverflowError]
+
+      println("I got a SOE all right. stack length = " + thrown.getStackTrace.length)
+    }
+
+    it("can concatenate a really long string using tail recursion") {
+      val lotsOfChars = util.Random.alphanumeric.take(8000).toArray
+      val expectedString = new String(lotsOfChars)
+
+      val output = List.foldLeft(List(lotsOfChars:_*),"")(_+_)
+
+      output should equal(expectedString)
+    }
 
   }
 }
