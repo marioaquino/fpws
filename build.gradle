@@ -25,6 +25,7 @@ task test(overwrite: true, dependsOn: compileTestScala) << {
     haltonfailure: 'true',
     fork: 'false'
   ) {
+    jvmarg(value: '-XX:MaxPermSize=512M')
     reporter(type: 'stderr', config: 'F')
   }
 }
