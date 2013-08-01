@@ -23,6 +23,7 @@ object List {
 
   def tail[A](ls: List[A]): List[A] = ls match {
     case Cons(x, xs) => xs
+    case Nil => ???
   }
 
   def drop[A](l: List[A], num:Int): List[A] =
@@ -31,6 +32,7 @@ object List {
 
   def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = l match {
     case Cons(x, xs) => if (f(x)) dropWhile(xs)(f) else l
+    case Nil => ???
   }
 
   def setHead[A](l: List[A], newHead: A): List[A] = l match {
@@ -67,4 +69,6 @@ object List {
   }
 }
 
-
+object ListUsingFoldleft {
+   def sum(ints: List[Int]): Int = ???
+}

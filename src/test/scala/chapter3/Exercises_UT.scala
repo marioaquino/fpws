@@ -65,5 +65,17 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
     }
 
   }
-}
 
+  describe("Exercise 11") {
+    import ListUsingFoldleft._
+    it("can take a sum using foldleft") {
+       sum(List(1,2,3,4)) should equal(10)
+    }
+    it("can take a sum using foldleft, trivial case") {
+      sum(List()) should equal(0)
+    }
+    it("can take a sum using foldleft, trivial case 2") {
+      sum(List(0)) should equal(0)
+    }
+  }
+}
