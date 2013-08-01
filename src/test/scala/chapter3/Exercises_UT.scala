@@ -78,4 +78,17 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
       sum(List(0)) should equal(0)
     }
   }
+
+  describe("Exercise 12") {
+    import ListUsingAnyFold._
+    it("reverses a list with stuff inside") {
+      reverse(List(1,2,3,4)) should equal(List(4,3,2,1))
+    }
+    it("doesnt bork when you give it an empty list") {
+      reverse(List()) should equal(List())
+    }
+    it("does just fine with a one item list") {
+      reverse(List(0)) should equal(List(0))
+    }
+  }
 }

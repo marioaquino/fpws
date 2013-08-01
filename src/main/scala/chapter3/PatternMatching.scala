@@ -70,5 +70,11 @@ object List {
 }
 
 object ListUsingFoldleft {
-   def sum(ints: List[Int]): Int = ???
+  import List.foldLeft
+   def sum(ints: List[Int]): Int =
+     foldLeft(ints, 0)(_ + _)
+}
+
+object ListUsingAnyFold {
+  def reverse[A](as: List[A]): List[A] = ???
 }
