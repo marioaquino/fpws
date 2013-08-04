@@ -78,3 +78,7 @@ object ListUsingFoldleft {
 object ListUsingAnyFold {
   def reverse[A](as: List[A]): List[A] = List.foldLeft[A, List[A]](as, Nil)((b,a) => Cons(a,b))
 }
+
+object Exercise13 {
+  def foldLeftWithRight[A,B] (l:List[A], z:B)(f: (B, A) => B): B = ???
+}

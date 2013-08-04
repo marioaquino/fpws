@@ -91,4 +91,12 @@ class Ch3ExercisesTest extends FunSpec with ShouldMatchers {
       reverse(List(0)) should equal(List(0))
     }
   }
+
+  describe("Exercise 13") {
+    import Exercise13._
+    it("concatenates strings in an order specific way") {
+      def takesFoldLeft(f:(List[Char], String) => ((String, Char) => String) => String):String = f (List('a', 'b', 'c'), "")(_ + _)
+      takesFoldLeft(foldLeftWithRight) should equal(takesFoldLeft(foldLeft))
+    }
+  }
 }
