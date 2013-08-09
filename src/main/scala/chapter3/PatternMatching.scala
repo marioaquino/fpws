@@ -80,5 +80,6 @@ object ListUsingAnyFold {
 }
 
 object Exercise13 {
-  def foldLeftWithRight[A,B] (l:List[A], z:B)(f: (B, A) => B): B = ???
+  def foldLeftWithRight[A,B] (l:List[A], z:B)(f: (B, A) => B): B =
+    List.foldRight[A, B => B](l, (b: B) => b)((a, bToB) => (z) => bToB(f(z,a)))(z)
 }
